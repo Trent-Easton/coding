@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ihr Name">
+    <meta name="description" content="jQuery">
+    <meta name="keywords" content="jQuery">
+
+    <title>Einfach jQuery Effekte</title>
+
+    <!-- Style im head -->
+    <style>
+        #idbox {
+            position: absolute;
+            left: 300px;
+            top: 300px;
+            border: 10px solid green;
+            width: 100px;
+            height: 50px;
+            z-index: 2;
+        }
+        #idfotoplatzhalter {
+            height: 500px;
+            z-index: 1;
+        }
+    </style>
+
+</head>
+<body>
+<noscript>
+    <p>JavaScript nicht aktiviert ...</p>
+</noscript>
+
+<h3>Einfach jQuery Effekte</h3>
+
+<div id="idbox"></div>
+
+<button type="button" id="idlinks">Links</button>
+<button type="button" id="idrechts">Rechts</button>
+<button type="button" id="idoben">Oben</button>
+<button type="button" id="idunten">Unten</button>
+<br><br>
+
+<div id="idfotoplatzhalter"><img src="sonne.jpg" alt="Sonne" id="idsonne"></div>
+<br>
+
+<button type="button" id="idganzeinblenden">Foto ganz einblenden</button>
+<button type="button" id="idhalbeinausblenden">Foto halb ein/ausblenden</button>
+<button type="button" id="idtoggleblenden">Foto ein/ausblenden</button>
+<button type="button" id="idtoggle">Foto ein/aus</button>
+
+<!-- JS am Ende des body -->
+<!-- jQuery Download: https://jquery.com/download/ -->
+<!--<script src="jquery-3.4.1.min.js"></script>-->
+<!-- jQuery CDN: https://code.jquery.com/ -->
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+</script>
+
+<script>
+    //<![CDATA[
+    // JavaScript is "Character Data", optional
+    "use strict"; // Variablen müssen deklariert sein
+
+    // jQuery Funktion $
+    // Eigene Funktion links erstellen, diese ruft per jQuery $ Funktion
+    // das Animieren der #idbox auf
+    function links() {
+        $("#idbox").animate({"left": "-=50px"}, 500);
+    }
+    // Klick Ereignis auf Schaltfläche #idlinks von jQuery entgegen nehmen lassen und
+    // links Funktion aufrufen
+    $("#idlinks").click(links);
+
+    function rechts() {
+        $("#idbox").animate({"left": "+=50px"}, 500);
+    }
+    $("#idrechts").click(rechts);
+
+    function oben() {
+        $("#idbox").animate({"top": "-=50px"}, 500);
+    }
+    $("#idoben").click(oben);
+
+    function unten() {
+        $("#idbox").animate({"top": "+=50px"}, 500);
+    }
+    $("#idunten").click(unten);
+
+    function ganzeinblenden() {
+        $("#idsonne").fadeTo(3000, 1);
+    }
+    $("#idganzeinblenden").click(ganzeinblenden);
+
+    function halbeinausblenden() {
+        $("#idsonne").fadeTo(3000, 0.5);
+    }
+    $("#idhalbeinausblenden").click(halbeinausblenden);
+
+    function aendernblenden() {
+        $("#idsonne").fadeToggle(3000);
+    }
+    $("#idtoggleblenden").click(aendernblenden);
+
+    function aendern() {
+        $("#idsonne").toggle();
+    }
+    $("#idtoggle").click(aendern);
+    //]]>
+</script>
+</body>
+</html>

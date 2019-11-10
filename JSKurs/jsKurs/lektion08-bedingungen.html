@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>Titel</title>
+    <script>
+        'use strict';
+        
+        let a = false;
+
+        //if (a == true) { richtig aber lange!}
+
+        if (a) {
+            console.log('A ist WAHR');
+        } else {
+            console.log('A ist NICHT WAHR');
+        }
+
+        // if (a != true) { richtig aber lange!}
+
+        if (a != true) {
+            console.log('A ist NICHT WAHR')
+        } else {
+            console.log('A ist WAHR')
+        }
+
+        let b = !a;
+        console.log(b);
+
+        b = !b;
+        console.log(b);
+
+        a = true;
+        b = false;
+
+        // if (a == true && b == false) {      // richtig aber lange!
+        if (a && b) {
+            console.log('A und B sind gleich');
+        } else {
+            console.log('A und B sind NICHT GLEICH');
+        }
+
+        if (a || b) {
+            console.log('A und B sind gleich');
+        } else {
+            console.log('weder A noch B ist wahr');
+        }
+        
+        a = 'hallo welt';
+        b = 'hallo Welt';
+        b.toLowerCase();
+        if (a == b) {
+        console.log('Texte sind gleich')
+        }
+
+        a = 10;
+        b = '10';
+
+        // wenn Typvergleich gewünscht ist, dann immer === oder !== verwenden
+        if (a === b) {
+            console.log('A ist gleich B')
+        }
+
+        const test1 = 1;
+        const test2 = 3;
+        const test3 = 10;
+        
+        if (test1 === 1) {
+            console.log('hurra bestanden!');
+        }
+
+        if (test3 !== 10) {
+            console.log('test3 ist nicht 10');
+        }
+
+        //Betsanden wenn:
+        //entweder test1 = 1 und test2 = 2
+        //oder wenn test3 = 10
+
+        if ((test1 === 1 && test2 === 2) || test3 === 10) {
+            console.log('bestanden!')
+        }
+
+        let zahl1 = 7;
+        let zahl2 = 6;
+
+        if (zahl1 <= zahl2) {
+            console.log('zahl1 ist kleiner als zahl2')
+        }
+
+        const time = new Date().getHours();
+        let greeting;
+
+        if (time < 10) {
+            greeting = "Good Morning";
+        } else if (time < 20) {
+            greeting = "Good day";
+        } else {
+            greeting = "Good evening";
+        }
+
+        let wochentag;
+
+        let tag = new Date().getDay();
+        switch (tag) {
+            case 0:
+                wochentag = 'Sonnatg';
+                break;
+            case 1:
+                wochentag = 'Montag';
+                break;
+            case 2:
+                wochentag = 'Dienstag';
+                break;
+            case 3:
+                wochentag = 'Mittwoch';
+                break;
+            case 4:
+                wochentag = 'Donnerstag';
+                break;
+            case 5:
+                wochentag = 'Freitag';
+                break;
+            case 6:
+                wochentag = 'Samstag';
+                break;
+            default:
+                woochentag = 'unbekannt';
+        }
+        console.log(tag, wochentag);
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

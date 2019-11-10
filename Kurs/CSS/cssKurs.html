@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Alexander">
+    <meta name="description" content="Beschreibung der Seite">
+    <meta name="keywords" content="html, css, js">
+
+    <title>CSS Kurs</title>
+
+    <!--externe Stylesheets eingeschränkt auf media-->
+    <link rel="stylesheet" href="cssKurs.css" media="screen">
+    <link rel="stylesheet" href="cssKursDruck.css" media="print">
+
+    <!-- Style im head--> 
+    <style>
+      h2 {
+       color: green !important;
+       /* Test mit und ohne diesem important -> letzte Regel wirkt */
+       
+      }
+
+      h2 {
+        color: red;
+
+      }
+      </style>
+
+</head>
+<body>
+      <!-- 1, nicht betroffen-->
+      <P>1, p:Normaler Absatz ...</P>
+
+      <!-- Kaskade, Rangordnung, Gewichtung, Sortierung:
+
+      Browser Stylesheet: Geringste Priorität
+      Benutzer Stylesheet: Überschreibt Browser Stylesheet
+      Autoren Stylesheet: Überschreibt Browser und Benutzer Stylesheet
+      !important Deklarationen des Autors
+      !important Deklarationen des Benutzers
+      Danach entscheidet die Spezifität (hohe überschreibt niedrige) des Regelsatzes.
+      Bei gleicher Spezifität gewinnt die letzte Regel oder jene, die eine Eigenschaft als !important deklariert.
+
+      Je spezifischer die Regel ist, desto stärker ist die Regel = desto höher ist der Wert der Spezifität.
+
+      - Der Zähler (A) wird durch ein inline style Attribut erhöht.
+      - Der Zähler (B) wird durch jedes Vorkommen eines id Selektors um 1 erhöht.
+      - Der Zähler (C) wird durch jedes Vorkommen eines Attributs, class Selektors oder Pseudoklasse um 1 erhöht.
+      - Der Zähler (D) wird durch jedes Vorkommen eines Typ Selektors oder Pseudoelements um 1 erhöht.
+
+      - Der Universalselektor * verhält sich neutral, er wird ignoriert.
+      - Die Pseudoklasse :visited wird aus Datenschutzgründen nur noch zT (Farben schon) unterstützt.
+      - Die Pseudoklasse :hover wird bei Touchgeräten nicht funktionieren.
+      - Die Pseudoklasse :not() selbst wird ignoriert, die Selektoren innerhalb der Klasse werden jedoch gewertet.
+
+      Typ Selektoren sind ganz normale html Tags, Bsp: p, h1, ...
+      class Selektoren beginnen mit einem . , Bsp: .class1, .class2, ...
+      id Selektoren beginnen mit einem # , Bsp: #id1, #id2, ...
+      Universalselektor ist ein *
+      Attribut Selektoren sind in [ ] eingeschlossen, Bsp: [color], [href], ...
+      Attribut Selektoren mit (Teil)-Werten
+          (ganz genau mit =, ein Wort (davor und danach ein Leerzeichen) mit ~=, am Beginn und danach ein - mit |=,
+          am Beginn mit ^=, in der Mitte mit *=, am Ende mit $=),
+          Bsp: a[href="test.htm"], area[title~="Wifi"], a[hreflang|="de",
+               a[href^="http://"], a[href*="wifiwien"], a[href$=".pdf"]
+      Pseudoklassen: :root, :empty, :first-child, :last-child, :nth-child(), :nth-last-child(), :only-child,
+          :first-of-type, :last-of-type, :nth-of-type(), :nth-last-of-type(), :only-of-type, :any-link, :link,
+          :visited, :hover, :active, :focus, :focus-within, :target, :disabled, :enabled, :checked, :valid, :invalid,
+          :in-range, :out-of-range, :lang(), :not(), :matches()
+      Pseudoelemente: ::before, ::after, ::first-line, ::first-letter, ::backdrop, ::selection
+
+      Bsp:
+                                   A B C D
+      *              /* Spezifität 0 0 0 0 */
+      h1             /* Spezifität 0 0 0 1 */
+      ul li          /* Spezifität 0 0 0 2 */
+      a::after       /* Spezifität 0 0 0 2 */
+      p:first-child  /* Spezifität 0 0 1 1 */
+      a:not([href])  /* Spezifität 0 0 1 1 */
+      ul.nav [href]  /* Spezifität 0 0 2 1 */
+      #author        /* Spezifität 0 1 0 0 */
+      #editor p      /* Spezifität 0 1 0 1 */
+      style=""       /* Spezifität 1 0 0 0 */
+
+      Bsp: Spezifität 0 1 0 15 ist höher als 0 0 3 16 -->
+
+    
+      <!-- 2,3,4, Drei Varianten der Einbindung von (Autoren) CSS in HTML-->
+      <h1  style="color: red;">2, h1: Inline Style vermeiden (schlechteste Variante aber höchste Rangordnung)</h1>
+      <h2>3, h2: Style über internes Stylesheet im Head (auch nicht gut, mittlere Rangordnung)</h2>
+      <h3>4, h3: Style über ein externe Stylesheet (zu bevorzugenden Variante, niedrigste Rangordnung)</h3>  
+     
+      <!--5,6, Selektoren gruppieren -->
+      <h5>5, h5: Gleiche Farbe wie ...</h5>
+      <h6>6, h6: ... aber natürlich kleiner</h6>
+      
+      <!-- 
+        id und class sollen die Rolle (Semantik) und nicht das Aussehen beschreiben 
+        zB: Formelbeschreibung, Warnung, ...
+        und nicht KursiverBlauerText oder rahmen4px
+      -->
+
+      <!-- 7, id muss eindeutig sein -->
+      <div id="id1">
+        <p>7, p in einem (div mit id): Absatz mit id1</p>
+      </div>
+      <!-- 8, 9, class kann bi vielen tags verwendet werden -->   
+      <div class="class1">
+          <p>8, p in einem (div mit class): Absatz in class1 </p>
+      </div> 
+      <p class="class1">8, p mit class: Absatz in class1 </p>
+
+      <!-- 10, 11, class kann auch nur eingeschränkt bei einem gewissen Tag verwendet werden -->
+      <div class="class2">
+        <P>10, p in (div mit class): Absatz NICHT in class2</P>
+      </div>
+      <p class="class1">11, p mit class: Absatz in class2</p>
+
+      <!-- 12, 13, 14 Pseudoklasse, erster Eintrag = first-child-->
+      <ol>
+        <li>12, li mit first-child: Gold</li>
+        <li>13, li mit first-child: Silber</li>
+        <li>14, li mit first-child: Bronze</li>        
+      </ol>
+
+      <!-- 15, Pseudoelemt, erstes Zeichen-->
+      <p id="ersterbuchstabe">Xy, 15, p mit id: Ersten Buchstaben formatier</p>
+
+      <!-- 16, Dynamische Pseudoklasse beim Hovern (Vorsicht; Touchgeräte nicht unterstützt!)-->
+      <p class="classhover">16, p mit class: Hier bitte hovern...</p>
+
+      <!-- 17, Box Modell-->
+      <p id="idbox">17, p mit id:<br>Inhalt in Box</p>
+
+      <!-- 18, 19, float Anordnung, Test mit Browsergröße -->
+      <!-- links -->
+      <p class="classfloatleft">18, p in class: float left Absatz...</p>
+      <p class="classfloatleft">18, p in class: float left Absatz...</p>
+      <p class="classfloatleft">18, p in class: float left Absatz...</p>
+      <p class="classfloatleft">18, p in class: float left Absatz...</p>
+      <p class="classfloatleft">18, p in class: float left Absatz...</p>
+      <!-- aussschalten -->
+      <p class="classdarunter">19, p in class: Absatz wieder darunter</p>
+      <!-- rechts -->
+      <p class="classfloatright">18, p in class: float right Absatz...</p>
+      <p class="classfloatright">18, p in class: float right Absatz...</p>
+      <p class="classfloatright">18, p in class: float right Absatz...</p>
+      <p class="classfloatright">18, p in class: float right Absatz...</p>
+      <p class="classfloatright">18, p in class: float right Absatz...</p>
+      <!-- aussschalten-->
+      <p class="classdarunter">19, p in class: Absatz wieder darunter</p>
+
+
+      <!-- Vererbung (Performance am schlechtesten) -->
+      <!-- 20, 21, Vererbung mit class -->
+      <div class="classvererbung">
+        <p>20, p in div mit class: p erbt Farbe von div</p>
+      </div>
+      <div class="classvererbung">
+        <p class="classvererbungueberschrieben">21, p mit class in div mit class: p überschreibt vererbte Farbe</p>
+      </div>
+
+      <!-- Nachfahre -->
+      <!-- Nachfahre direkt -->
+      <!-- 22, Vererbung, >, nur direkter Nachfahre -->
+      <div>
+        <h5>22, h5 in parent div (muss direkter Nachfahre sein)</h5>
+        <section>
+          <h5>22, h5 in parent section in div (indirekter Nachfahre)</h5>
+        </section>  
+      </div>
+      <!-- Nachfahre direkt oder indirekt -->
+      <!-- 23, Vererbung, space, nur direkter Nachfahre -->
+      <section>
+        <span>23, Ein span in section (direkter Nachfahre)</span>
+        <p>
+          23, p in section; es folgt ein span:
+          <span>span in p in section (indirekter Nachfahre)</span>
+        </p>
+      </section>      
+      
+      <!-- 24, Nachbar=Geschwister -->
+      <!-- Nachbar=Geschwister direkt -->
+      <!-- 24, Vererbung, +,  Abfolge in der Reihenfolge, nur direkter Nachbar -->
+      <section></section>
+      <h5>24, h5 sofort nach section</h5>
+      <h5>24, h5 auch nach section aber nicht direkt und daher nicht betroffen</h5>
+
+      <!-- Nachbar=Geschwister direkt -->
+      <!-- 25, Vererbung, ~,  Abfolge in der Reihenfolge, alle Nachbaren  innerhalb des gleichen Elternelements -->
+      <article>
+        <section></section>
+        <h6>25, h6 nach section innerhalb von Article</h6>
+        <p>25, p in Absatz dazwischen, nicht betroffen von Article</p>
+        <h6>25, h6 nach section innerhalb von Article als Elternelement </h6>
+      </article>
+
+      <!-- 26, innerhal und ausserhalb eines Range -->
+      <form>
+        <label for="testrange">26, Testbereich (10-20 ok):</label>
+        <input id="testrange" type="number" min="10" max="20" step="1" value="15">
+      </form>
+
+      <!-- 27, 28, not -->
+      <div id="idnot">
+        <p>27, p in div mit id:alle ausser Absatz, daher nicht betroffen</p>
+        <h6>28, h6 in div mit id: betroffen</h6>
+      </div>
+
+      <!-- 29, 30, 31, 32 CSS Funktionen -->
+      <p id="idfunktion1">29, p mit id: Farbe mit rgb Funktion</p>
+      <p id="idfunktion2">29, p mit id: Farbe mit rgba Funktion</p>
+      <p id="idfunktion3">29, p mit id: Farbe mit hsl Funktion</p>
+      <p id="idfunktion4">29, p mit id: Farbe mit hsla Funktion</p>
+
+      <!-- 33, tag mit mehreren class -->
+      <p class="classmehrere1">33, p mit erster class: erhält nur von erster Klasse die Eigenschaften</p>
+      <p class="classmehrere2">33, p mit zweiter class: erhält nur von zweiter Klasse die Eigenschaften</p>
+      <p class="classmehrere1 classmehrere2">33, p mit erster und zweiter class: erhält von beiden Klassen die Eigenschaften</p>
+
+      <!-- 34, Attributselektor -->
+      <p title="ist hier unwirksam">34, p ohne bestimmten Wort im Titel</p>
+      <p title="ist hier wirksam">34, p mit Wort im Titel</p>
+
+      <!-- 35, Struktur-Pseudoklassen -->
+      <table>
+        <tr>
+          <td></td>
+          <td>35, td mit Zelleninhalt, unwirksam</td>
+          <td></td>
+        </tr>
+        <tr>
+            <td>35, td mit Zelleninhalt, unwirksam</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>35, td mit Zelleninhalt, unwirksam</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>35, td mit Zelleninhalt, unwirksam</td>
+            <td></td>
+        </tr>
+      </table>
+
+     <!-- 36, Flexbox für Responsive Design --> 
+      <main>
+        <article class="classflexbox">
+          <p>36, Absatz des ersten Artikels in Flexbox</p>
+        </article>
+        <article class="classflexbox">
+          <p>36, Absatz des zweiten Artikels in Flexbox</p>
+        </article>
+        <article class="classflexbox">
+          <p>36, Absatz des dritten Artikels in Flexbox</p>
+        </article>
+      </main>
+
+      <p>&nbsp;</p>
+
+</body>
+</html>

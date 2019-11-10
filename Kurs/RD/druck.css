@@ -1,0 +1,45 @@
+@charset "utf-8";
+#container {                                 
+    padding: 0;                                         /* Innenabstand ausschalten */
+}
+
+#kopf {
+    border-radius: 0.5em;                               /* abgerundete Ecken */
+    padding: 10px;                                      /* Innenabstand */
+    min-height: 30px;                                   /* Minimalhöhe */
+    background-color: #f2f2ff;
+    border: 1px solid #000483;
+}
+
+#menu {
+    display: none;
+}
+
+#inhalt {
+    margin: 3px 0 0 0;                                 /* Aussenabstand top right bottom left, links und rechts ein wenig */
+    border-radius: 0.5em;                               /* abgerundete Ecken */
+    padding: 10px;                                      /* Innenabstand */
+    min-height: 400px;                                   /* Minimalhöhe */
+    background-color: #f2f2ff;
+    border: 1px solid #000483;
+}
+
+#fuss {
+    margin: 3px 0 0 0;                              /* Aussenabstand top right bottom left, links und rechts ein wenig */
+    border-radius: 0.5em;                               /* abgerundete Ecken */
+    padding: 10px;                                      /* Innenabstand */
+    min-height: 30px;                                   /* Minimalhöhe */
+    background-color: #f2f2ff;
+    border: 1px solid #000483;
+}
+
+body {
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+    color: #000483;
+}
+
+#aufloesung::after {
+    content: "druck";
+}

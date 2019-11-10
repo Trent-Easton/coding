@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>Timer</title>
+    <script src="js/faker.js"></script>
+    <script>
+        'use strict';
+
+        //Zeitsteuerung über zwei Methoden
+        // setTimeout = wartet bis die Zeit in MS erreicht wurde
+        // setIntervall = führt alle x MS eine Funktion aus
+
+        let idTimeoutGewinnzahl;
+        let idIntervallUhr;
+
+        function gewinn() {
+            document.querySelector('#gewinnzahl').innerHTML = faker.random.uuid();
+            // UUID universal unique identifier
+        }
+        
+        idTimeoutGewinnzahl = setTimeout(gewinn, 7000);
+        // gewinn();
+
+        /* Ninja Variante, Pro gamer move, oustanding move für aufbaukurs
+        idTimeoutGewinnzahl = setTimeout(function()  {
+            document.querySelector('#gewinnzahl').innerHTML = faker.uuid();
+        }, 2000);
+        */ 
+        function stoppeGewinn() {
+            clearTimeout(idTimeoutGewinnzahl);
+            document.querySelector('#gewinnzahl').innerHTML = '--abgebrochen--';
+            }
+    </script>    
+</head>
+<body>
+    <h1>Timer</h1>
+    <h2>Die Gewinnzahl lautet: <span id="gewinnzahl"></span></h2>
+    <br>
+    <div id="ausgabe"></div>
+    <button type="button" onclick="stoppeGewinn()">Gewinnermittlung abbrechen</button>
+
+    <script>
+        // gewinn();
+    </script>
+
+
+
+</body>
+</html>

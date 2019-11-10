@@ -1,0 +1,51 @@
+
+    <!-- Zeile in Raster erstellen -->
+    <div class="row">
+        <!-- Spalte in Raster erstellen, sm 2 spaltig (bedeutet 6 Spalten von den 12 belegen),
+            md 3 spaltig (bedeutet 4 Spalten von den 12 belegen) -->
+        <article class="col-sm-6 col-md-4">
+            <!-- Bildgröße an übergeordnetes Element anpassen (entspricht max-width:100%; height:auto;), abrunden -->
+            <img src="img/Foto1.jpg" alt="Fels" class="img-responsive img-rounded">
+            <h2>Fels</h2>
+            <!--  -->
+            <p class="lead"><span class="label label-danger">Am Meer</span> Tauchen, Schwimmen, Wassersport ... <a href="javascript:alert('To Do ...');" class="small">Weiterlesen</a></p>
+        </article>
+        <!-- Spalte in Raster erstellen, sm 2 spaltig, md 3 spaltig -->
+        <article class="col-sm-6 col-md-4">
+            <img src="img/Foto2.jpg" alt="Parkanlage" class="img-responsive img-rounded">
+            <h2>Parkanlage</h2>
+            <p class="lead"><span class="label label-warning">Im Garten</span> Spazieren, Erholen, Ruhe finden ... <a href="javascript:alert('To Do ...');" class="small">Weiterlesen</a></p>
+        </article>
+        <!-- Spalte in Raster erstellen, sm 1 spaltig, md 3 spaltig -->
+        <article class="col-sm-12 col-md-4">
+            <img src="img/Foto3.jpg" alt="Eiskalt" class="img-responsive img-rounded">
+            <h2>Eiskalt</h2>
+            <p  class="lead"><span class="label label-success">Wintersport</span> Schifahren, Winterwandern, Ausblick genießen ... <a href="javascript:alert('To Do ...');" class="small">Weiterlesen</a></p>
+        </article>
+    </div>
+
+    <!-- Zeile in Raster erstellen -->
+    <div class="row">
+        <!-- Spalte in Raster erstellen, md 2 spaltig -->
+        <article class="col-md-6">
+            <img src="img/Foto4.jpg" alt="Abendstimmung" class="img-responsive img-rounded">
+            <h2>Abendstimmung</h2>
+            <p class="lead"><span class="label label-primary">Farbenspiel</span> Träumen, Staunen ... <a href="javascript:alert('To Do ...');" class="small">Weiterlesen</a></p>
+        </article>
+        <!-- Spalte in Raster erstellen, md 2 spaltig -->
+        <article class="col-md-6">
+            <img src="img/Foto5.jpg" alt="Wolkenspiel" class="img-responsive img-rounded">
+            <h2>Wolkenspiel</h2>
+            <p class="lead"><span class="label label-info">Wetter</span> See, Dämmerung ... <a href="javascript:alert('To Do ...');" class="small">Weiterlesen</a></p>
+        </article>
+    </div>
+
+    <hr>
+
+    <!-- Zeile in Raster erstellen -->
+    <div class="row">
+        <!-- Spalte in Raster erstellen, md 1 spaltig, zentriert -->
+        <footer class="col-md-12 text-center"><p>&copy; Wifi-Wien | <a href="javascript:alert('To Do ...');">Impressum</a> |
+            <!-- Mailsymbol aus Bootstrapfont -->
+            <a href="mailto:test@test.at"><span class="glyphicon glyphicon-envelope"></span></a></p></footer>
+    </div>

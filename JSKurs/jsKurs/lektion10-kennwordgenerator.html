@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>Titel</title>
+    <script>
+        'use strict';
+
+        function generiereKennwort(laenge) {
+            console.log('Länge', laenge);
+
+        //https://www.w3schools.com/charset/ref_html_ascii.asp
+        // 0 ist ASCII 48, 9 = 57, A = 65, Z = 90, a = 97, z = 122
+        
+        let kennwort = '';
+        let zahl = 0;
+
+        while (kennwort.lenght < laenge) {
+            // 0.6789999
+            zahl = Math.floor(Math.random() * 123);
+            // if ((zahl >= 48 && zahl <= 57) || (zahl >= 65 && zahl <= 90) || (zahl >= 97 && zahl <= 123)) {
+            if (zahl >= 48 && zahl <= 122) {
+                kennwort += String.fromCharCode(zahl);
+            }
+        }
+        document.querySelector('#ausgabe').innerHTML = kennwort;
+    }
+    </script>   
+</head>
+<body>
+    <h1>Kennwort-Generator</h1>
+    <h2 id="ausgabe">*****</h2>
+    <br>
+    <button type="button" onclick="generiereKennwort(20)">Klicke um Kennwort zu erzeugen</button>
+</body>
+</html>

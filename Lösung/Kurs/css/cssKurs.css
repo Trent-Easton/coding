@@ -1,0 +1,306 @@
+@charset "utf-8";  /* muss ganz oben stehen */
+
+/* id und class Namen sind Case sensitiv! */
+
+/*
+    Anderes Stylesheet einbinden
+    @import "weiteresStylesheet.css"
+*/
+
+/*
+    Media Queries, Einschränkungen im CSS
+    @media (orientation: portrait) {
+        ... Formate für Hochformat Ausgabegeräte ...
+    }
+*/
+
+/*
+    Muster:
+        Selektor(en) {
+            Eigenschaft1: Wert(e)1;
+            Eigenschaft2: Wert(e)2;
+        }
+
+    Wird eine Eigenschaft nicht angegeben,
+    verwendet der Browser den in der CSS Spezifikation definierten Standardwert.
+*/
+
+/*
+    Vererbung:
+    Nicht alle Eigenschaften werden automatisch vererbt.
+    Bsp: background, margin, border, padding, width, ...
+    Man kann die Vererbung erzwingen:
+    body {
+        background: inherit;
+        background-color: red;
+    }
+    Vererbung und relative Angaben:
+    body {
+        font-size: 50%;
+    }
+    p {
+        font-size: 50%;
+    }
+    -> das bewirkt 0.5 * 0.5 = 0.25 also 25% Darstellung
+*/
+
+/*
+    Universalselektor * (wirkt auf alle Elemente)
+    * {
+        color: magenta;
+    }
+    main * {
+        color: red;
+    }
+*/
+
+/*
+    Typische Fehler:
+    - ; oder , vergessen
+    - Leerzeichen in Werten (Bsp: # ff0000)
+    - statt : ein =
+    - Anzahl der Klammern nicht gerade
+    - kein einzeiliger Kommentar (JavaScript: // ...)
+    - id und class Namen sind Case sensitiv!
+*/
+
+
+/* 4, Typ Selektor (Performance am besten) */
+h3 {
+    color: magenta;
+}
+
+/* 5, 6, Selektoren gruppiert */
+h5, h6 {
+    color: darkgreen;
+}
+
+/* 7, id Selektor mit #, div#id1 ginge auch, ist W3C unerwünscht */
+#id1 {
+    color: blue;
+}
+
+/* 8, 9, class Selektor mit . ,class kann bei vielen Tags verwendet werden */
+.class1 {
+    color: chartreuse;
+}
+
+/* 10 (nicht wirkend), 11, tag Selektor auf class eingeschränkt
+class kann auch nur eingeschränkt bei einem gewissen Tag verwendet werden*/
+p.class2 {
+    color: aqua;
+}
+
+/* 12, (13, 14 nicht wirkend) Pseudoklasse, erster Eintrag */
+li:first-child {
+    color: gold;
+}
+
+/* 15, id Selektor auf Pseudoelement eingeschränkt, erstes Zeichen */
+#ersterbuchstabe::first-letter {
+    font-size: xx-large;
+}
+
+/* 16, class Selektor auf dynamische Pseudoklasse eingeschränkt, Hovern (Vorsicht: Touchgeräte nicht unterstützt!) */
+.classhover:hover {
+    color: maroon;
+}
+
+/*
+    Einheiten:
+    Größe:
+        Absolut:    1in=6pc=72pt=2.54cm=25.4mm (1"=1Zoll=1Inch=6Pica)
+        Relativ:    1em=Schriftgröße, 1rem=Schriftgröße der Wurzel
+                    (1em Größe wird also von der Schriftgröße übernommen.
+                    Wird es für die Schriftgröße selbst genommen,
+                    dann bezieht es sich auf die Schriftgröße des Elternelements.
+                    rem (root em) bezieht sich immer auf die Schriftgröße des Wurzelelements, den html tag.)
+                    100vw=Viewport Breite in %, 100vh=Viewport Höhe in %
+                    %, px
+    Auflösung:      dpi
+    Winkel:         360deg (Grad)
+    Zeit:           1000ms=1s
+*/
+
+/* 17, Boxmodell */
+/* eine absolute Positionierung ist selten gut! Besser ist ein float Anordnung */
+#idbox {
+    /*box-sizing: border-box;*/
+                                        /*
+                                        border-box: für neues CSS3 Boxmodell
+                                        width und height gibt die Rahmengröße an
+                                        d.h. bei margin: 0; ist width und height genau die Größe der Box
+                                        content-box: entspricht dem alten Boxmodell,
+                                        width und height gibt die Inhaltsgröße an
+                                        padding-box:
+                                        width und height gibt die Paddinggröße an
+                                        */
+    position: absolute;
+                                        /*
+                                        static: Standard bei Nichtangabe,
+                                        Elemente nacheinander im Dokumentfluss anordnen
+                                        relativ: Elemente relativ zur static Position verschieben,
+                                        andere Elemente belassen
+                                        absolut: Element ist aus Dokumentfluss entfernt und frei positionierbar
+                                        fixed: wie absolute, aber es bewegt sich beim scrollen nicht mit
+                                        */
+    left: 400px;
+    top: 300px;
+                                        /*
+                                        Position von links oben, Test mit 0 0
+                                        */
+    z-index: -1;
+                                        /*
+                                        Reihenfolge in Tiefenrichtung, -1 ist hinter dem Text
+                                        */
+    margin: 0;
+                                        /*
+                                        Außenabstand, Test mit 20px und 0 0 Position
+                                        */
+    border: 10px solid red;
+                                        /*
+                                        Rahmen
+                                        */
+    padding: 10px;
+                                        /*
+                                        Innenabstand
+                                        */
+
+                                        /*
+                                        Reihenfolge im Uhrzeigersinn, beginnend oben
+                                        padding 5px 10px 15px 20px;
+                                        oben 5px, rechts 10px, unten 15px, links 20px
+                                        padding 5px 10px 15px;
+                                        oben 5px, rechts 10px, unten 15px, links 10px
+                                        padding 5px 10px;
+                                        oben 5px, rechts 10px, unten 5px, links 10px
+                                        padding 5px;
+                                        oben 5px, rechts 5px, unten 5px, links 5px
+                                        */
+    width: 100px;
+    height: 50px;
+                                        /*
+                                        Breite und Höhe des Inhalts bei altem Boxmodell und
+                                        Breite und Höhe der Aussenkante des Rahmens beim neuen Boxmodell
+                                        */
+}
+
+/* 18, 19, float Anordnung, Test mit Browsergröße */
+.classfloatleft {
+    float: left;
+}
+.classfloatright {
+    float: right;
+}
+.classdarunter {
+    clear: both;
+}
+
+/* Vererbung (Performance am schlechtesten) */
+/* 20, 21, Vererbung mit class */
+.classvererbung {
+    color: gray;
+}
+.classvererbungueberschrieben {
+    color: orange;
+}
+
+/* Nachfahre */
+/* Nachfahre direkt */
+/* 22, Vererbung, >, nur direkter Nachfahre , parent > child */
+div > h5 {
+    color: blueviolet;
+}
+/* Nachfahre direkt oder indirekt */
+/* 23, Vererbung, space, nur direkter Nachfahre, parent child */
+section span {
+    color: pink;
+}
+
+/* Nachbar=Geschwister */
+/* Nachbar=Geschwister direkt */
+/* 24, Vererbung, +, Abfolge in der Reihenfolge, nur direkten Nachbar, adjacent sibling */
+section + h5 {
+    color: yellowgreen;
+}
+/* Nachbar=Geschwister direkt oder indirekt */
+/* 25, Vererbung, ~, Abfolge in der Reihenfolge,
+    alle Nachbaren innerhalb des gleichen Elternelements, general sibling */
+section ~ h6 {
+    color: khaki;
+}
+
+/* 26, innerhalb und ausserhalb eines Range */
+#testrange:in-range {
+    color: green;
+}
+#testrange:out-of-range {
+    color: red;
+}
+
+/* 27, 28, not */
+#idnot :not(p) {
+    color: darkturquoise;
+}
+
+/* 29, 30, 31, 32, CSS Funktionen */
+#idfunktion1 {
+    color: rgb(255, 0, 255); /* identisch mit #ff00ff */
+}
+#idfunktion2 {
+    color: rgba(255, 0, 255, 0.5); /* halbtransparent */
+}
+#idfunktion3 {
+    color: hsl(300, 100%, 25%); /* identisch mit #800080 */
+}
+#idfunktion4 {
+    color: hsla(300, 100%, 25%, 0.5); /* halbtransparent */
+}
+
+/* 33, tag mit mehreren class */
+.classmehrere1 {
+    color: brown;
+}
+.classmehrere2 {
+    font-weight: bold;
+}
+.classmehrere1.classmehrere2 {
+    font-size: 2em;
+}
+
+/* 34, Attributselektor */
+p[title~="wirksam"] {
+    font-weight: bolder;
+}
+
+/* 35, Struktur-Pseudoklassen, gerade Zeilen fett, leere Zellen rot */
+table, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+}
+tr:nth-child(even) {
+    font-weight: bolder;
+}
+td:empty {
+    background-color: red;
+}
+
+/* 36, Flexbox für Responsive Design */
+main {
+    display: flex;
+                        /*  Elternelement ist Flexbox
+                            block:      Element wird Blockelement (erzeugt immer Absatz)
+                            inline:     Element wird Inlineelement (erzeugt keinen Absatz)
+                            flex:       Flexbox statt Block-Modell
+                            none:       Ausblenden und keinen Platz verbrauchen
+                        */
+    flex-direction: row;
+                        /* Anordnung in Zeile (Standard bei Nichtangabe), auch column möglich */
+}
+article.classflexbox {
+    width: 300px;
+    margin: 10px 10px 10px 0;
+    padding: 10px;
+    border: 2px solid black;
+}

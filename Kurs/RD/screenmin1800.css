@@ -1,0 +1,13 @@
+@charset "utf-8";
+#menu {
+    width: 200px;
+    float: left;
+}
+
+#inhalt {
+    width: calc(95% - 200px);
+    float: right;
+}
+#aufloesung::after {
+    content: "screenmin1800";
+}

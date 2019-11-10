@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <!--  Zeichencodierung zB für Umlaute notwendig  -->
+    <!--  utf-8 ist 1 bis 4 Byte lang  -->
+    <meta charset="utf-8">
+    <!-- name, content   -->
+    <meta name="beliebigername" content="Beliebiger Wert ...">
+    <!--  viewport ist der Browser Darstellungsbereich, Gerätebreite, Zoom 100%  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ihr Name">
+    <meta name="description" content="Beschreibung der Seite">
+    <!--  kann von Suchmaschine ignoriert werden  -->
+    <meta name="keywords" content="html, css, js">
+    <meta name="date" content="2019-10-13T09:00:00+01:00">
+    <!--  kann von Suchmaschine ignoriert werden  -->
+    <meta name="robots" content="noindex, nofollow">
+    <!--  http-equiv eigentlich Anweisungen an den Webserver gewesen, heute auch Browseranweisungen  -->
+    <!--    <meta http-equiv="refresh" content="5">-->
+    <!--    <meta http-equiv="refresh" content="5 url=https://www.wifiwien.at/">-->
+
+    <!--  favicons  -->
+    <link rel="icon" typeof="image/png" sizes="16x16" href="../bilder/icon16x16.png">
+    <link rel="apple-touch-icon" typeof="image/png" sizes="120x120" href="../bilder/apple-touch-icon120x120.png">
+
+
+    <title>HTML Kurs</title>
+
+    <!-- Style im head -->
+    <style>
+        /*
+            Kommentar in CSS ...
+        */
+        h1 {
+            color:red;
+        }
+        h2 {
+            color:green;
+        }
+        h3 {
+            color:blue;
+        }
+        hr {
+            width:600px;
+            margin-left:0;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        fieldset {
+            width: 300px;
+        }
+        input.classbreit {
+            width: 200px;
+        }
+
+
+    </style>
+
+    <!-- JS im head -->
+    <!--  auch aus Performancegründen zuerst Style, link Style, dann erst Skripte laden  -->
+    <!--  Optimale MathML Unterstützung in allen Browsern  -->
+    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!--  Pfadangaben:
+            relative:   ..  übergeordneter Ordner
+                        .   aktueller Ordner
+
+            absolute:   /   Wurzel des Webs
+    -->
+    <!--  Scriptcode am besten am Ende der Seite!  -->
+    <script>
+        //<![CDATA[
+        // JavaScript is "Character Data", optional
+        "use strict"; // Variablen müssen deklariert sein
+
+        //]]>
+    </script>
+
+</head>
+<body>
+<noscript>
+    <p>JavaScript nicht aktiviert ...</p>
+</noscript>
+
+<!-- HTML4 Blockelemente, benützen ganze Seitenbreite, erzeugen eigenen Absatz, HTML5 Flow-Content -->
+<!-- Seitenstrukturierung mit semantischen Elementen -->
+<header>
+    <h2>Kopfzeile</h2>
+    <p>Absatz</p>
+</header>
+<hr>
+<nav>
+    <h2>Navigation</h2>
+    <ul>
+        <li>Menüpunkt 1</li>
+        <li>Menüpunkt 2</li>
+    </ul>
+</nav>
+<hr>
+<main>
+    <h1 id="hauptteil">Hauptteil</h1> <!--  h1 bis h6  -->
+    <article>
+        <h2>Artikel 1</h2>
+        <section>
+            <h3>Thema 1</h3>
+            <h6>bis zur kleinsten Unterüberschrift</h6>
+            <p>Absatz</p>
+
+            <p><del>Gelöschter Text</del></p>
+            <p><ins>Eingefügter Text</ins></p>
+
+            <h4>Blockquote</h4>
+            <blockquote>
+                <p>There is no javascript!
+                There is JavaScript!
+                Originally JavaScript was only one implementation of ECMA&shy;Script.</p>
+                <!-- Bedingter Trennstrich -->
+            </blockquote>
+
+            <h4>Bereich (div)</h4>
+            <div id="b1">Bereich b1 über id</div>
+            <div id="b2">Bereich b2 über id</div>
+            <div class="c1">Bereich c1 über class</div>
+            <div class="c1 c2">Bereich c1 c2 über zwei class</div>
+
+            <!-- Präformatierter Text          -->
+            <h4>Programmcode</h4>
+            <pre>
+                <code class="language-pascal">
+                    Program Addieren;
+                    Var
+                        Zahl1, Zahl2, Summe: Integer;
+                    Begin
+                        Write('Erste Zahl');
+                        Readln(Zahl1);
+                        Write('Zweite Zahl');
+                        Readln(Zahl2);
+                        Summe:=Zahl1 + Zahl2;
+                        Writeln(Summe);
+                    End.
+                </code>
+            </pre>
+            <h4>Ascii Art</h4>
+            <pre>
+                (\_/)
+                ( •,•)
+                (")_(")
+            </pre>
+
+            <h4>Aufzählung</h4>
+            <ul>
+                <li>Apfel</li>
+                <li>Birne</li>
+                <li>Kirsche</li>
+            </ul>
+            <h4>Nummerierung</h4>
+            <ol>
+                <li>Orange</li>
+                <li>Zitrone</li>
+                <li>Limette</li>
+            </ol>
+
+            <table>
+                <caption>Testtabelle</caption>
+                <thead>
+                    <tr>
+                        <th>Spaltenüberschrift 1</th>
+                        <th>Spaltenüberschrift 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Zelle 1</td>
+                    <td>Zelle 2</td>
+                </tr>
+                <tr>
+                    <td>Zelle 3</td>
+                    <td>Zelle 4</td>
+                </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Gesamt 1</th>
+                        <th>Gesamt 2</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+        <section>
+            <h3>Thema 2</h3>
+            <p>Absatz</p>
+        </section>
+
+        <h3>Randbemerkung</h3>
+        <aside>
+            <p>Absatz</p>
+        </aside>
+    </article>
+
+    <article>
+        <h2>Artikel 2</h2>
+        <section>
+            <h3>Thema 3</h3>
+            <p>Absatz</p>
+        </section>
+        <section>
+            <h3>Thema 4</h3>
+            <p>Absatz</p>
+        </section>
+    </article>
+
+    <section>
+        <h2>Formular</h2>
+        <form>
+            <fieldset>
+                <legend>Name</legend>
+                <label for="vorname">Vorname:
+                    <input id="vorname" type="text" value="Alexander" list="vornamenliste">
+                        <datalist id="vornamenliste">
+                            <option value="Susanne">
+                            <option value="Alexander">
+                            <option value="Silvia">
+                            <option value="Robert">
+                            <option value="Erwin">
+                            <option value="Karin">
+                        </datalist>
+                </label><br>
+                <label for="nachname">Nachname:
+                    <!--  regex mit pattern (1 Großbuchstabe, dann Kleinbuchstaben  -->
+                    <input id="nachname" type="text" value="Müller" pattern="[A-ZÄÖÜ][a-zäöü]+" required>
+                </label><br>
+            </fieldset>
+
+            <label for="kennwort">Kennwort:
+                <input id="kennwort" type="password" value="geheim" required>
+            </label><br>
+
+            <label for="wichtig">Wichtigkeit:
+                <input id="wichtig" type="checkbox">Wichtig
+            </label><br>
+
+            <fieldset>
+                <legend>Anrede</legend>
+                <input type="radio" id="frau" name="anrede" value="Frau">
+                <label for="frau"> Frau</label>
+                <input type="radio" id="herr" name="anrede" value="Herr" checked>
+                <label for="herr"> Herr</label>
+            </fieldset>
+            <label>Ort:
+                <select name="ort" id="ort">
+                    <option>Graz</option>
+                    <option selected>Wien</option>
+                    <option>Linz</option>
+                    <option>Klagenfurt</option>
+                </select>
+            </label><br>
+            <label for="geburtstag">Geburtstag:
+                <input id="geburtstag" type="date" value="1980-12-24">
+            </label><br>
+            <label for="telefon">Telefon:
+                <input id="telefon" class="classbreit" type="tel" value="+43(1)47677/5555">
+            </label><br>
+            <label for="email">Email:
+                <input id="email" class="classbreit" type="email" value="maria@wifi.at">
+            </label><br>
+            <label for="homepage">Telefon:
+                <input id="homepage" class="classbreit" type="url" value="https://www.wifiwien.at/">
+            </label><br>
+            <label for="schulnote">Schulnote:
+                <input id="schulnote" type="range" value="2" min="1" max="5" step="1">
+            </label><br>
+            <label for="gehalt">Gehalt:
+                <input id="gehalt" type="number" value="1500" min="100" max="10000" step="100">
+            </label><br>
+
+            <label>Auswertung:<br>
+                <output id="ergebnis"></output>
+            </label><br>
+
+            <button type="button" id="auswerten">Auswerten ...</button><br>
+
+            <label for="tastaturtest">Tastatur testen:
+                <textarea id="tastaturtest">Hier schreiben ...</textarea>
+            </label>
+        </form>
+    </section>
+
+
+
+
+
+</main>
+<hr>
+<footer>
+    <h2>Fußzeile</h2>
+    <address>Copyright 2019 Wifi-Wien</address>
+</footer>
+
+<!-- JS am Ende des body -->
+<script src="htmlKurs.js"></script>
+
+<script>
+    //<![CDATA[
+    // JavaScript is "Character Data", optional
+    "use strict"; // Variablen müssen deklariert sein
+
+    window.onload = function () {
+        document.getElementById("auswerten").onclick = auswertung;
+    }
+
+    //]]>
+</script>
+</body>
+</html>

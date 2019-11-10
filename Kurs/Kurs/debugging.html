@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ihr Name">
+    <meta name="description" content="Beschreibung der Seite">
+    <meta name="keywords" content="html, css, js">
+
+    <title>Debugging</title>
+
+</head>
+<body>
+    <noscript>
+        <p>JavaScript nicht aktiviert ...</p>
+    </noscript>
+
+    <p>Zähler: <span id="ausgabe"></span></p>
+
+    <!-- JS am Ende des body -->
+    <script>
+        //<![CDATA[
+        // JavaScript is "Character Data", optional
+        "use strict"; // Variablen müssen deklariert sein
+
+        for (let i = 0; i < 1000; i++) {
+            // Hier Haltepunkt setzen
+            document.getElementById("ausgabe").innerHTML = i.toString();
+        }
+
+        //]]>
+    </script>
+</body>
+</html>

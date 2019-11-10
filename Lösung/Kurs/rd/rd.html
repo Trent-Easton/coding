@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ihr Name">
+    <meta name="description" content="Test Responsive Design">
+    <meta name="keywords" content="html, css, js">
+
+    <title>RD</title>
+
+    <link rel="stylesheet" href="rd.css" media="screen">
+    <link rel="stylesheet" href="screenmax600.css" media="only screen and (max-width: 600px)">
+    <!-- Der Wechsel von Stylesheets nennt sich Breakpoint -->
+    <link rel="stylesheet" href="screenmin600.css" media="only screen and (min-width: 601px) and (max-width: 899px)">
+    <link rel="stylesheet" href="screenmin900.css" media="only screen and (min-width: 900px) and (max-width: 1199px)">
+    <link rel="stylesheet" href="screenmin1200.css" media="only screen and (min-width: 1200px) and (max-width: 1799px)">
+    <link rel="stylesheet" href="screenmin1800.css" media="only screen and (min-width: 1800px)">
+    <!-- only für alte Browser, damit and ... ignoriert wird -->
+    <link rel="stylesheet" href="druck.css" media="print">
+    <!-- Weitere Medienmerkmale: orientation (Hoch/Querformat), aspect-ratio (Seitenverhältnis),
+         color (Farbtiefe), resolution (dpi) -->
+    <!-- Logik: not, and, (or wird als Aufzählung mit Trennzeichen "," realisiert) -->
+
+</head>
+<body>
+
+<!-- Erinnerung: Siehe auch Flexbox! -->
+<!-- Hier ist das Layout mit float gelöst -->
+<div id="container">
+    <header id="kopf">
+        <p id="aufloesung">Kopf ... Formatvorlage: </p>
+    </header>
+
+    <nav id="menu">
+        <p>Menü ...</p>
+    </nav>
+
+    <main id="inhalt">
+        <h1>Inhalt ...</h1>
+        <p>Text ...</p>
+    </main>
+
+    <footer id="fuss">
+        <p>Fuß ...</p>
+    </footer>
+</div>
+
+</body>
+</html>

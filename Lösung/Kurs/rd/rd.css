@@ -1,0 +1,48 @@
+@charset "utf-8";
+#container {
+    margin: 0.5% auto 0.5% auto;    /* Aussenabstand, top right bottom left, oben und unten bisserl, horizontal mittig */
+    border: 0;                      /* Rahmen ausschalten */
+    padding: 0;                     /* Innenabstand ausschalten */
+    max-width: 1600px;              /* Maximalbegrenzung für sehr große Bildschirme */
+}
+#kopf {
+    margin: 0 0.5% 0 0.5%;          /* Aussenabstand, top right bottom left, links und rechts bisserl */
+    border-radius: 0.5em;           /* abgerundete Ecken */
+    padding: 10px;                  /* Innenabstand */
+    min-height: 30px;               /* Minimalhöhe */
+    background-color: #000483;
+    box-shadow: 0.2em 0.2em 1em #000483; /* Schatten rechts unten verlaufend */
+}
+#menu {
+    margin: 1% 0 1% 0.5%;          /* Aussenabstand */
+    border-radius: 10px;           /* abgerundete Ecken */
+    padding: 5px;                  /* Innenabstand */
+    min-height: 200px;             /* Minimalhöhe */
+    background-color: #000483;
+    box-shadow: 0.2em 0.2em 1em #000483; /* Schatten rechts unten verlaufend */
+}
+#inhalt {
+    margin: 1% 0.5% 1% 0;          /* Aussenabstand */
+    border-radius: 0.5em;           /* abgerundete Ecken */
+    padding: 10px;                  /* Innenabstand */
+    min-height: 400px;               /* Minimalhöhe */
+    background-color: #000483;
+    box-shadow: 0.2em 0.2em 1em #000483; /* Schatten rechts unten verlaufend */
+}
+#fuss {
+    margin: 0 0.5% 0 0.5%;          /* Aussenabstand, top right bottom left, links und rechts bisserl */
+    border-radius: 0.5em;           /* abgerundete Ecken */
+    padding: 10px;                  /* Innenabstand */
+    min-height: 30px;               /* Minimalhöhe */
+    background-color: #000483;
+    box-shadow: 0.2em 0.2em 1em #000483; /* Schatten rechts unten verlaufend */
+    clear: both;                    /* Fußzeile unterhalb von Menü und Inhalt */
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    background: #f2f2f7 url('hintergrund.gif') repeat fixed;
+    /* Hellgrau, hellgrau schattiert, bewegt sich beim Scrollen nicht */
+    overflow-y:scroll;
+    /* Vertikalen Rollbalken erzwingen, damit keine horizontale Verschiebung */
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Alexander">
+        <meta name="description" content="Beschreibung der Seite">
+        <meta name="keywords" content="html, css, js">
+
+        <title>Reihenfolge</title>
+
+        </-- 1.) CSS -->
+        <style>
+          p#id1 {
+            color: red;
+
+          }
+        </style>
+
+        </-- JS im head -->
+        <script>
+          //<![CDATA[
+          // JavaScript is "Character Data", optional
+         "use strict"; // Variablen müssen deklariert sein
+
+          //]]>
+        </script>
+
+    </head>
+
+    <body>
+        <noscript>
+          <p>Javascript nicht aktiviert...</p>
+        </noscript>
+
+          <p id="id1">Absatz zum testen...</p>
+
+          <!-- 2.) JS-->
+        <!-- JS am Ende des body-->
+         <script>
+            //<![CDATA[
+            // JavaScript is "Character Data", optional
+           "use strict"; // Variablen müssen deklariert sein
+          document.getElementById("id1").style.color = "green";
+            //]]>
+          </script>
+    </body>
+</html>

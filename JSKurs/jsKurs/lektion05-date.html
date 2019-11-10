@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>Titel</title>
+    <script>
+        'use strict';
+        let today = new Date();
+        console.log(today);
+
+        let tomorrow = new Date();
+        tomorrow.setDate(today.getDate() +1);
+        console.log(tomorrow);
+
+        let tomorrow2 = new Date().setDate(1);
+        console.log(tomorrow2);
+
+        console.log(today.getMinutes());
+        console.log(today.getFullYear());
+        console.log(today.getDay());
+
+    </script>
+</head>
+
+<body>
+    <h1>Ich lerne JS</h1>
+    <script>
+        let text = document.querySelector('h1').innerHTML;
+        console.log(text);
+    
+        document.querySelector('h1').innerHTML = 'Ich lerne PHP';
+        document.querySelector('h1').innerHTML += ' und SQL';
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+@charset "utf-8";
+#aufloesung::after {
+    content: "screenmax600";
+}

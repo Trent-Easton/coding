@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>Aquarium</title>
+    <link href="../css/aquarium.css" rel="stylesheet">  <!-- ../ für übergeordneten ordner -->
+    <script src="../js/aquarium.js"></script>           <!-- js/aquarium = root ordner -->
+</head>
+<body>
+<h1>Aquariumberechnung</h1>
+<table class="aquarium">
+        <tr>
+            <td>Höhe in cm: </td>
+            <td><input type="number" name="hoehe" value="100" /></td>
+        </tr>
+        <tr>
+            <td>Breite in cm: </td>
+            <td><input type="number" name="breite" value="50" /></td>
+        </tr>
+        <tr>
+            <td>Tiefe in cm: </td>
+            <td><input type="number" name="tiefe" value="40" /></td>
+        </tr>
+        <tr>
+            <td>Füllstand in cm: </td>
+            <td><input type="number" name="fuellstand" value="3" /></td>
+        </tr>
+        <tr>
+            <td>Bodengrund in cm: </td>
+            <td><input type="number" name="bodengrund" value="6" /></td>
+        </tr>
+        <tr>
+            <td>Glasdicke in cm: </td>
+            <td><input type="number" name="glasdicke" value="0.50" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button type="button" onclick="starteBerechnung()">Jetzt berechnen</button></td>
+        </tr>
+        <tr>
+            <td>Wasserinhalt:</td>
+            <td><span id="wasserinhalt"></span></td>
+        </tr>
+        <tr>
+            <td colspan="2">-----------------------------------------------------------------------</td>
+        </tr>
+</table>
+</body>
+</html>

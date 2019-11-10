@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Aquarium Kalkulator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css" media="screen">
+    <style>
+      #diagrammFlaecheVorne {
+        background-color: aliceblue;
+      }
+      #diagrammFlaecheSeite {
+        background-color: aliceblue;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Aquarium</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#calculator">Aquarium-Kalkulator</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <p>&nbsp;</p>
+                <h1>Der Aquarium-Kalkulator</h1>
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <h2>Innenmaße des Aquariums</h2>
+                    <p>Geben Sie die Innenmaße Ihres Aquariums ein, um das Volumen des Wassers zu berechnen. (Maximaldimensionen: 300cm)</p>
+
+                    <div class="form-group alert alert-primary">
+                        <label for="hoeheEingabe"><strong>Höhe in cm</strong></label><br>
+                        <sup>1&nbsp;</sup><input type="range" id="hoeheEingabe" value="1" min="1" max="300" onchange="sliderWertHoehe(this.value);"><sup>&nbsp;300</sup><br>
+                        <sup>Ausgewählte Breite: <span id="sliderHoeheWert"><em>Bitte Slider bewegen</em></span></sup>
+                    </div>
+
+                    <div class="form-group alert alert-primary">
+                        <label for="laengeEingabe"><strong>Länge in cm</strong></label><br>
+                        <sup>1&nbsp;</sup><input type="range" id="laengeEingabe" value="1" min="1" max="300" onchange="sliderWertLaenge(this.value);"><sup>&nbsp;300</sup><br>
+                        <sup>Ausgewählte Länge: <span id="sliderLaengeWert"><em>Bitte Slider bewegen</em></span></sup>
+                    </div>
+
+                    <div class="form-group alert alert-primary">
+                        <label for="breiteEingabe"><strong>Breite in cm</strong></label><br>
+                        <sup>1&nbsp;</sup><input type="range" id="breiteEingabe" value="1" min="1" max="300" onchange="sliderWertBreite(this.value);"><sup>&nbsp;300</sup><br>
+                      <sup>Ausgewählte Breite: <span id="sliderBreiteWert"><em>Bitte Slider bewegen</em></span></sup>
+                    </div>
+
+                    <div class="form-group alert alert-primary">
+                        <label for="kieshoeheEingabe"><strong>Kieshöhe im Becken in cm</strong></label><br>
+                        <sup>1&nbsp;</sup><input type="range" id="kieshoeheEingabe" value="1" min="1" max="300" onchange="sliderWertKieshoehe(this.value);"><sup>&nbsp;300</sup><br>
+                        <sup>Ausgewählte Kieshöhe: <span id="sliderKieshoeheWert"><em>Bitte Slider bewegen</em></span></sup>
+                        <div id="kieshoeheWarnung"></div>
+                    </div>
+
+                    <div class="form-group alert alert-primary">
+                        <label for="fuellstanddifferenzEingabe"><strong>Füllstanddifferenz in cm</strong></label><br>
+                        <sup>1&nbsp;</sup><input type="range" id="fuellstanddifferenzEingabe" value="1" min="1" max="300" onchange="sliderWertFuellstanddifferenz(this.value);"><sup>&nbsp;300</sup><br>
+                        <sup>Ausgewählte Füllstanddifferenz: <span id="sliderFuellstanddifferenzWert"><em>Bitte Slider bewegen</em></span></sup>
+                        <div id="fuellstanddifferenzWarnung"></div>
+                    </div>
+
+                    <button type="button" class="btn btn-primary btn-lg" id="berechnen" onclick="formWerte()">Berechnen</button>
+
+                </div>
+            </div>
+          </div>
+
+
+          <div class="col-lg-8 text-center">
+            <h2>Ergebnis</h2>
+            <p class="card-text" id="literausgabe">Hier werden Ergebnis und Diagramm Ihres Aquariums angezeigt.</p>
+            <div class="card border-primary mb-12">
+                <div class="card-header"><h3>Diagramm Ihres Aquariums</h3></div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <h4>Ansicht von vorne</h4>
+                      <canvas id="diagrammFlaecheVorne" width="302" height="302"></canvas><br><br>
+                    </div>
+                    <div class="col-sm-6">
+                      <h4>Ansicht von der Seite</h4>
+                      <canvas id="diagrammFlaecheSeite" width="302" height="302"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+        </div>
+
+
+      <footer id="footer">
+        <div class="row">
+          <div class="col-lg-12">
+            <hr>
+            <p>Written by Marin Balabanov. An Exercise in the <a href="https://wifiwien.at">WIFI Wien Javascript Developer Course</a>. Based on <a href="https://getbootstrap.com" rel="nofollow">Bootstrap</a>.</p>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+    <script>
+
+      // Globale Variablen initialisieren
+      let laenge;
+      let breite;
+      let hoehe;
+      let kieshoehe;
+      let fuellstanddifferenz;
+
+      let sliderLaenge = 1;
+      let sliderBreite = 1;
+      let sliderHoehe = 1;
+      let sliderKieshoehe = 1;
+      let sliderFuellstanddifferenz = 1;
+
+      // Range Slider Werte anzeigen
+      function sliderWertHoehe(sliderHoehe) {
+              document.getElementById('sliderHoeheWert').innerHTML=sliderHoehe;
+
+              // Der Kiesstand darf nicht die Hoehe des Aquariums Ueberschreiten
+              if (parseInt(document.getElementById('kieshoeheEingabe').value) > parseInt(document.getElementById('hoeheEingabe').value)) {
+                document.getElementById('kieshoeheWarnung').innerHTML = 'Achtung: die Kieshöhe überschreitet die Höhe des Aquariums.';
+                document.getElementById('kieshoeheWarnung').classList.add('alert');
+                document.getElementById('kieshoeheWarnung').classList.add('alert-danger');
+              } else {
+                document.getElementById('kieshoeheWarnung').innerHTML = '';
+                document.getElementById("kieshoeheWarnung").classList.remove('alert');
+                document.getElementById("kieshoeheWarnung").classList.remove('alert-danger');
+                }
+
+              // Die Fuellstanddifferenz darf nicht die Hoehe des Aquariums Ueberschreiten
+              if (parseInt(document.getElementById('fuellstanddifferenzEingabe').value) > parseInt(document.getElementById('hoeheEingabe').value)) {
+                document.getElementById('fuellstanddifferenzWarnung').innerHTML = 'Achtung: die Füllstanddifferenz überschreitet die Höhe des Aquariums.';
+                document.getElementById('fuellstanddifferenzWarnung').classList.add('alert');
+                document.getElementById('fuellstanddifferenzWarnung').classList.add('alert-danger');
+                } else {
+                document.getElementById('fuellstanddifferenzWarnung').innerHTML = '';
+                document.getElementById('fuellstanddifferenzWarnung').classList.remove('alert');
+                document.getElementById('fuellstanddifferenzWarnung').classList.remove('alert-danger');
+                }
+              }
+
+      function sliderWertLaenge(sliderLaenge) {
+              document.getElementById('sliderLaengeWert').innerHTML=sliderLaenge;
+              }
+
+      function sliderWertBreite(sliderBreite) {
+              document.getElementById('sliderBreiteWert').innerHTML=sliderBreite;
+          }
+
+      function sliderWertKieshoehe(sliderKieshoehe) {
+              document.getElementById('sliderKieshoeheWert').innerHTML=sliderKieshoehe;
+
+              // Der Kiesstand darf nicht die Hoehe des Aquariums Ueberschreiten
+              if (parseInt(document.getElementById('kieshoeheEingabe').value) > parseInt(document.getElementById('hoeheEingabe').value)) {
+                document.getElementById('kieshoeheWarnung').innerHTML = 'Achtung: die Kieshöhe überschreitet die Höhe des Aquariums.';
+                document.getElementById('kieshoeheWarnung').classList.add('alert');
+                document.getElementById('kieshoeheWarnung').classList.add('alert-danger');
+                } else {
+                document.getElementById('kieshoeheWarnung').innerHTML = '';
+                document.getElementById("kieshoeheWarnung").classList.remove('alert');
+                document.getElementById("kieshoeheWarnung").classList.remove('alert-danger');
+                }
+              }
+
+      function sliderWertFuellstanddifferenz(sliderFuellstanddifferenz) {
+              document.getElementById('sliderFuellstanddifferenzWert').innerHTML=sliderFuellstanddifferenz;
+
+              // Die Fuellstanddifferenz darf nicht die Hoehe des Aquariums Ueberschreiten
+              if (parseInt(document.getElementById('fuellstanddifferenzEingabe').value) > parseInt(document.getElementById('hoeheEingabe').value)) {
+                document.getElementById('fuellstanddifferenzWarnung').innerHTML = 'Achtung: die Füllstanddifferenz überschreitet die Höhe des Aquariums.';
+                document.getElementById('fuellstanddifferenzWarnung').classList.add('alert');
+                document.getElementById('fuellstanddifferenzWarnung').classList.add('alert-danger');
+                } else {
+                document.getElementById('fuellstanddifferenzWarnung').innerHTML = '';
+                document.getElementById('fuellstanddifferenzWarnung').classList.remove('alert');
+                document.getElementById('fuellstanddifferenzWarnung').classList.remove('alert-danger');
+                }
+              }
+
+      function formWerte() {
+
+              // Werte holen
+              laenge = parseInt(document.getElementById('laengeEingabe').value);
+              breite = parseInt(document.getElementById('breiteEingabe').value);
+              hoehe = parseInt(document.getElementById('hoeheEingabe').value);
+              kieshoehe = parseInt(document.getElementById('kieshoeheEingabe').value);
+              fuellstanddifferenz = parseInt(document.getElementById('fuellstanddifferenzEingabe').value);
+
+              // Ergebnis berechnen
+              let wasserBereich = (hoehe - kieshoehe) - fuellstanddifferenz;
+              let literVolumen = (laenge * breite * wasserBereich) * 0.001;
+
+              // Ausgabe
+              document.getElementById('literausgabe').classList.add('alert');
+              document.getElementById('literausgabe').classList.add('alert-success');
+              document.getElementById('literausgabe').innerHTML = 'Das Volumen des Wassers im Aquariums beträgt: ' + literVolumen + ' liter';
+
+              diagrammZeichnenVonVorne();
+              diagrammZeichnenVonSeite();
+              }
+
+      function diagrammZeichnenVonVorne(){
+
+              // Vorderansicht zeichnen
+              let meincanvasvorne = document.getElementById('diagrammFlaecheVorne');
+              let meincontextvorne = meincanvasvorne.getContext('2d');
+              meincanvasvorne.width = meincanvasvorne.width;
+
+              // Hoehe links
+              meincontextvorne.moveTo(1,1);
+              meincontextvorne.strokeStyle = '#000000';
+              meincontextvorne.lineTo(1,hoehe);
+              meincontextvorne.stroke();
+              // Laenge
+              meincontextvorne.moveTo(1,hoehe);
+              meincontextvorne.strokeStyle = '#000000';
+              meincontextvorne.lineTo(breite,hoehe);
+              meincontextvorne.stroke();
+              // Hoehe rechts
+              meincontextvorne.moveTo(breite,hoehe);
+              meincontextvorne.strokeStyle = '#000000';
+              meincontextvorne.lineTo(breite,1);
+              meincontextvorne.stroke();
+              // Fuellstand
+              meincontextvorne.moveTo(1,fuellstanddifferenz);
+              meincontextvorne.strokeStyle = '#000000';
+              meincontextvorne.lineTo(breite,fuellstanddifferenz);
+              meincontextvorne.stroke();
+              // Kiesstand
+              meincontextvorne.moveTo(1,(hoehe-kieshoehe));
+              meincontextvorne.strokeStyle = '#000000';
+              meincontextvorne.lineTo(breite,(hoehe-kieshoehe));
+              meincontextvorne.stroke();
+              }
+
+      function diagrammZeichnenVonSeite() {
+
+              // Seitenansicht zeichnen
+              let meincanvasseite = document.getElementById('diagrammFlaecheSeite');
+              let meincontextseite = meincanvasseite.getContext('2d');
+              meincanvasseite.width = meincanvasseite.width;
+
+              // Hoehe links
+              meincontextseite.moveTo(1,1);
+              meincontextseite.strokeStyle = '#000000';
+              meincontextseite.lineTo(1,hoehe);
+              meincontextseite.stroke();
+              // Laenge
+              meincontextseite.moveTo(1,hoehe);
+              meincontextseite.strokeStyle = '#000000';
+              meincontextseite.lineTo(laenge,hoehe);
+              meincontextseite.stroke();
+              // Hoehe rechts
+              meincontextseite.moveTo(laenge,hoehe);
+              meincontextseite.strokeStyle = '#000000';
+              meincontextseite.lineTo(laenge,1);
+              meincontextseite.stroke();
+              // Fuellstand
+              meincontextseite.moveTo(1,fuellstanddifferenz);
+              meincontextseite.strokeStyle = '#000000';
+              meincontextseite.lineTo(laenge,fuellstanddifferenz);
+              meincontextseite.stroke();
+              // Kiesstand
+              meincontextseite.moveTo(0,(hoehe-kieshoehe));
+              meincontextseite.strokeStyle = '#000000';
+              meincontextseite.lineTo(laenge,(hoehe-kieshoehe));
+              meincontextseite.stroke();
+              }
+
+    </script>
+
+  </body>
+</html>

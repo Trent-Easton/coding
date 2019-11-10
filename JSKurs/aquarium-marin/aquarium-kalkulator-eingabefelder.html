@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Aquarium Kalkulator</title>
+  <meta content="width=device-width, initial-scale=1"
+        name="viewport">
+  <meta content="IE=edge"
+        http-equiv="X-UA-Compatible">
+  <link href="css/bootstrap-theme.min.css"
+        media="screen"
+        rel="stylesheet">
+  <style>
+      #diagrammFlaecheVorne {
+        background-color: aliceblue;
+      }
+      #diagrammFlaecheSeite {
+        background-color: aliceblue;
+      }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand"
+         href="#">Aquarium</a>
+    <div class="collapse navbar-collapse"
+         id="navbarColor01">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link"
+              href="index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+              href="#calculator">Aquarium-Kalkulator</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <p>&nbsp;</p>
+        <h1>Der Aquarium-Kalkulator</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="row text-center">
+          <div class="col-md-12">
+            <h2>Innenmaße des Aquariums</h2>
+            <p>Geben Sie die Innenmaße Ihres Aquariums ein, um das Volumen des Wassers zu berechnen. (Maximaldimensionen: 300cm)</p>
+            <div class="row alert alert-primary">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="laengeEingabe"><br>
+                  Länge in cm</label> <input class="form-control"
+                       id="laengeEingabe"
+                       placeholder="Länge"
+                       type="number">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="breiteEingabe"><br>
+                  Breite in cm</label> <input class="form-control"
+                       id="breiteEingabe"
+                       placeholder="Breite"
+                       type="number">
+                </div>
+              </div>
+            </div>
+            <div class="row alert alert-primary">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="hoeheEingabe"><br>
+                  Höhe in cm</label> <input class="form-control"
+                       id="hoeheEingabe"
+                       placeholder="Höhe"
+                       type="number">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="kieshoeheEingabe">Kieshöhe im<br>
+                  Becken in cm</label> <input class="form-control"
+                       id="kieshoeheEingabe"
+                       placeholder="Kieshöhe"
+                       type="number">
+                </div>
+              </div>
+            </div>
+            <div class="row alert alert-primary">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="fuellstanddifferenzEingabe">Füllstanddifferenz<br>
+                  in cm</label> <input class="form-control"
+                       id="fuellstanddifferenzEingabe"
+                       placeholder="Füllstanddifferenz"
+                       type="number">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <br>
+                  <button class="btn btn-primary btn-lg"
+                       id="berechnen"
+                       type="button">Berechnen</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8 text-center">
+        <h2>Ergebnis</h2>
+        <p class="card-text"
+           id="literausgabe">Hier werden Ergebnis und Diagramm Ihres Aquariums angezeigt.</p>
+        <div class="card border-primary mb-12">
+          <div class="card-header">
+            <h3>Diagramm Ihres Aquariums</h3>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-6">
+                <h4>Ansicht von vorne</h4>
+                <canvas height="302"
+                        id="diagrammFlaecheVorne"
+                        width="302"></canvas><br>
+                <br>
+              </div>
+              <div class="col-sm-6">
+                <h4>Ansicht von der Seite</h4>
+                <canvas height="302"
+                        id="diagrammFlaecheSeite"
+                        width="302"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer id="footer">
+      <div class="row">
+        <div class="col-lg-12">
+          <hr>
+          <p>Made by Marin Balabanov. An Exercise in the <a href="https://wifiwien.at">WIFI Wien Javascript Developer Course</a>. Based on <a href="https://getbootstrap.com"
+             rel="nofollow">Bootstrap</a>.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script>
+
+      let laenge;
+      let breite;
+      let hoehe;
+      let kieshoehe;
+      let fuellstanddifferenz; 
+
+      window.onload = function () {
+              document.getElementById("berechnen").onclick = formWerte;
+          }
+
+      function formWerte() {
+              laenge = parseInt(document.getElementById('laengeEingabe').value);
+              breite = parseInt(document.getElementById('breiteEingabe').value);
+              hoehe = parseInt(document.getElementById('hoeheEingabe').value);
+              kieshoehe = parseInt(document.getElementById('kieshoeheEingabe').value);
+              fuellstanddifferenz = parseInt(document.getElementById('fuellstanddifferenzEingabe').value);
+              // Ergebnis berechnen
+              let wasserBereich = (hoehe - kieshoehe) - fuellstanddifferenz;
+              let literVolumen = (laenge * breite * wasserBereich) * 0.001;
+
+              // Ausgabe
+              document.getElementById('literausgabe').classList.add('alert');
+              document.getElementById('literausgabe').classList.add('alert-success');
+              document.getElementById('literausgabe').innerHTML = 'Das Volumen des Wassers im Aquariums beträgt: ' + literVolumen + ' liter';
+
+              diagrammZeichnenVonVorne();
+              diagrammZeichnenVonSeite();
+          }
+
+      function diagrammZeichnenVonVorne(){
+
+              // Vorderansicht zeichnen
+              let meincanvasvorne = document.getElementById('diagrammFlaecheVorne');
+              let meincontextvorne = meincanvasvorne.getContext('2d');
+              meincanvasvorne.width = meincanvasvorne.width;
+
+              // Hoehe links
+              meincontextvorne.moveTo(1,1);
+              meincontextvorne.strokeStyle = '#000000';
+              meincontextvorne.lineTo(1,hoehe);
+              meincontextvorne.stroke();
+              // Laenge
+              meincontextvorne.moveTo(1,hoehe);
+              meincontextvorne.strokeStyle = '#000000';
+              meincontextvorne.lineTo(breite,hoehe);
+              meincontextvorne.stroke();
+              // Hoehe rechts
+              meincontextvorne.moveTo(breite,hoehe);
+              meincontextvorne.strokeStyle = '#000000';
+              meincontextvorne.lineTo(breite,1);
+              meincontextvorne.stroke();
+              // Fuellstand
+              meincontextvorne.moveTo(1,fuellstanddifferenz);
+              meincontextvorne.strokeStyle = '#000000';
+              meincontextvorne.lineTo(breite,fuellstanddifferenz);
+              meincontextvorne.stroke();
+              // Kiesstand
+              meincontextvorne.moveTo(1,(hoehe-kieshoehe));
+              meincontextvorne.strokeStyle = '#000000';
+              meincontextvorne.lineTo(breite,(hoehe-kieshoehe));
+              meincontextvorne.stroke();
+              }
+
+      function diagrammZeichnenVonSeite() {
+
+              // Seitenansicht zeichnen
+              let meincanvasseite = document.getElementById('diagrammFlaecheSeite');
+              let meincontextseite = meincanvasseite.getContext('2d');
+              meincanvasseite.width = meincanvasseite.width;
+
+              // Hoehe links
+              meincontextseite.moveTo(1,1);
+              meincontextseite.strokeStyle = '#000000';
+              meincontextseite.lineTo(1,hoehe);
+              meincontextseite.stroke();
+              // Laenge
+              meincontextseite.moveTo(1,hoehe);
+              meincontextseite.strokeStyle = '#000000';
+              meincontextseite.lineTo(laenge,hoehe);
+              meincontextseite.stroke();
+              // Hoehe rechts
+              meincontextseite.moveTo(laenge,hoehe);
+              meincontextseite.strokeStyle = '#000000';
+              meincontextseite.lineTo(laenge,1);
+              meincontextseite.stroke();
+              // Fuellstand
+              meincontextseite.moveTo(1,fuellstanddifferenz);
+              meincontextseite.strokeStyle = '#000000';
+              meincontextseite.lineTo(laenge,fuellstanddifferenz);
+              meincontextseite.stroke();
+              // Kiesstand
+              meincontextseite.moveTo(0,(hoehe-kieshoehe));
+              meincontextseite.strokeStyle = '#000000';
+              meincontextseite.lineTo(laenge,(hoehe-kieshoehe));
+              meincontextseite.stroke();
+      }
+
+  </script>
+</body>
+</html>

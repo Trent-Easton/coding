@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>Titel</title>
+    <script src="js/plz.js"></script>
+    <script>
+        'use strict';
+
+        let students = [
+            'Gaius Iulius Caesar',
+            'Napoleon Bonaparte',
+            'Michael Angelo',
+            'Martin Luther',
+            'Leonardo DaVinci'
+        ]
+
+        console.log(students);
+        console.log(students instanceof Array);     // true
+        console.log(typeof students);               // object
+        console.log('Länge:', students.length);
+        console.log(students[1]);
+        console.log(students[students.length - 1]);
+        console.log(students[100]);
+
+        students[100] = 'Martin Luther';
+        console.log(students);
+
+        students[1] = 'Erika Heustadl';
+
+        students.push('Silvia Hupfauf', 'Willi Aschauer');
+        console.log(students);
+
+        for(let i in students){
+            console.log(i);
+        }
+        for(let i of students){
+            console.log(i);
+        }
+
+        students.pop();
+        students.pop();
+        students.pop();
+
+        console.log(students);
+
+
+        students = [
+            'Gaius Iulius Caesar',
+            'Napoleon Bonaparte',
+            'Michael Angelo',
+            'Martin Luther',
+            'Leonardo DaVinci'
+        ]
+
+        console.log(students);
+
+        let gepoppt = students.pop();
+        // console.log()
+        console.log(gepoppt);
+        console.log(students);
+
+        students.unshift('Marvin G.');  //an erster Stelle einfügen
+        students.shift();    // erste Stelle löschen
+
+        let oldCount = students.length;
+        let newCount = students.push('Senta Berger', 'Peter Alexander');
+
+        console.log(oldCount, newCount);
+
+        // löscht von Index 0 an zwei Elemente
+        students.splice(0, 2);
+        console.log(students);
+        // Fügt an Index 1 ein
+        students.splice(1, 0, 'Max Müller');
+        console.log(students);
+        //Löscht und fügt an
+        students.splice(1, 1, 'Hugo Meister');
+        console.log(students);
+
+        console.log(students.sort());       // A - Z
+        console.log(students.reverse());     // Z - A
+
+        let kinder1 = ['Cecilie', 'Lone'];
+        let kinder2 = ['Emil', 'Tobias', 'Linus'];
+        let kinder3 = ['Manuel', 'Fabian', 'Manfred'];
+        let alleKinder = kinder1.concat(kinder2, kinder3);       // Zusammenführen mehrerer Arrays
+        console.log(alleKinder);
+
+        let fruit = ['Banane', 'Apfel', 'Melone', 'Pfirsich'];
+        console.log(fruit.toString());
+        console.log(fruit.join(' ** '));                        // wie Zeile 92 nur das Trennzeichen wird bestimmt
+
+        let tnKurs1 = ['Olivia', 'Laura'];
+        let tnKurs2 = ['Max', 'Friedrich', 'Anna'];
+        let neuerTn = 'Bettina';
+        
+        /*
+
+        if (tnKurs1.length < tnKurs2.length) {
+            tnKurs1.push(neuerTn);
+        } else {
+            tnKurs2.push(neuerTn);
+        }
+
+        console.log(tnKurs1, tnKurs1);
+        */
+        function platziereTN(neuerTn) {
+            if (tnKurs1.length < tnKurs2.length) {
+                tnKurs1.push(neuerTn);
+            } else {
+                tnKurs2.push(neuerTn);
+            }
+        }
+
+        platziereTN('Markus');
+        platziereTN('Sophie');
+        platziereTN('Peter');
+        platziereTN('Hanna');
+        platziereTN('Carsten');
+
+        console.log(tnKurs1, tnKurs2);
+
+        // console.log(datenPLZ);
+
+        const plz = [];
+        let zeilen = datenPLZ.split('\n');
+        console.log(zeilen[0]);
+        console.log(zeilen[1]);
+        console.log(zeilen[100]);
+        console.log(zeilen.length);
+
+        zeilen.shift();                         // löscht erste Zeile aus "zeilen" Array
+        console.log(zeilen[0]);
+
+        for (let i of zeilen) {
+            let plzDaten = i.split(';');       // i.split(';') = neuer index wenn ";"
+
+            plzDaten[1] = plzDaten[1].replace('"', '');
+            plzDaten[1] = plzDaten[1].replace('"', '');
+
+
+            let obj = {
+                plz: plzDaten[0],              // lässt uns nur den 1. 2. und 3. Index anzeigen
+                ort: plzDaten[1],
+                bundesland: plzDaten[2]
+            }
+            console.log(obj);
+            plz[plzDaten[0]] = obj;
+        }
+
+        console.log('Melk', plz[3390]);
+
+        
+
+    </script>    
+</head>
+<body>
+</body>
+</html>

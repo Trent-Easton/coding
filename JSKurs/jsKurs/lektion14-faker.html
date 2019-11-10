@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>Faker</title>
+    <script src="js/faker.js"></script>
+    <script>
+        'use strict';
+
+        let mitarbeiter = [];
+        // fakeMitarbeiterliste(1500, 'ru', true);
+
+        function fakeMitarbeiterliste(anzahl, sprache, loeschen) {              // Anzahl der Mitarbeiter, Sprache d. M. und löschen ja/nein der vorherigen Datensätze
+            faker.locale = sprache;
+
+            if (loeschen) {
+                mitarbeiter = [];
+            }
+
+            for (let i = 0; i < anzahl; i++) {      //im 1er schritt bis 2000 
+                let objMA = {};
+                let objAdresse = {};
+                let arrHobbies = [];
+
+                objAdresse.strasse = faker.address.streetAddress();
+                objAdresse.plz = faker.address.zipCode();
+                objAdresse.ort = faker.address.city();
+                // console.log(objAdress);
+
+                for (let i = 0; i < 5; i++) {
+                    arrHobbies.push(faker.lorem.word());
+                }
+                
+                objMA.vorname = faker.name.firstName();
+                objMA.nachname = faker.name.lastName();
+                objMA.verheiratet = faker.random.boolean();
+                objMA.alter = faker.random.number(100);
+                objMA.adresse = objAdresse;
+                objMA.arrHobbies = arrHobbies;
+
+                mitarbeiter.push(objMA);
+
+            }
+        }
+        fakeMitarbeiterliste(1500, 'ru', true); 
+        fakeMitarbeiterliste(700, 'es', false);
+        fakeMitarbeiterliste(200, 'de', true);
+        // generiert 1500 ru Mitarbeiter, hängt 700 es Mitarbeiter, löscht alles davor und erzeugt 200 deutsche Mitarbeiter        
+        console.log(mitarbeiter);
+
+        
+    </script>    
+</head>
+<body>
+</body>
+</html>

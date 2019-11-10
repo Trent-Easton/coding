@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>Titel</title>
+    <script>
+        'use strict';
+        let satz = '     Fuchs du hast die Gans gestohlen, gib sie wieder her.              ';
+        let neuerSatz = satz + '  ' +                 4444 + '. sonst wird dich ...         ';
+        console.log(neuerSatz);
+        console.log(neuerSatz.length);
+        console.log(neuerSatz.charAt(15));
+        console.log(neuerSatz[15]);
+        console.log(neuerSatz.indexOf('Fuchs'));
+        console.log(neuerSatz.indexOf('Fuchs', 50));              
+        console.log(neuerSatz.lastIndexOf('di'));
+        console.log(neuerSatz.includes('Gans'));
+        console.log(neuerSatz.includes('gans'));
+
+        neuerSatz = neuerSatz.toLowerCase();
+        console.log(neuerSatz);
+        console.log(neuerSatz.includes('gans'));
+
+        neuerSatz = neuerSatz.toUpperCase();
+        console.log(neuerSatz);
+        console.log(neuerSatz.includes('FUCHS'))
+
+        console.log(neuerSatz.replace('GANS', 'ENTE'));
+        console.log(neuerSatz.trim());
+        
+        console.log(String.fromCharCode(65, 66, 67, 68).repeat(20));
+        console.log('*'.repeat(50));
+
+        let satz2 = 'wir sind die \'Vikinger\' aus \ndem hohen Norden';
+        console.log(satz2);
+
+        let string3 = 'Apple, Banana, Kiwi';
+        let string4 = string3.slice(7, 13);
+        console.log(string4);
+
+        let string5 = string3.slice(7);
+        console.log(string5);
+        
+        let myVariable = 'wonderful';
+        let myString = `something ${myVariable} happens`
+        console.log(myString);
+        
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

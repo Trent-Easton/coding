@@ -1,0 +1,19 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+}
+.aquarium td {
+    padding: 6px;
+}
+.aquarium input[type=number] {
+    width: 140 px;
+    text-align: right;
+    padding: 3px;
+}
+.aquarium button {
+    background: paleturquoise;
+    padding: 3px;
+    transition: all 2s;
+}
+.aquarium button:hover {
+    background: palegreen;
+}

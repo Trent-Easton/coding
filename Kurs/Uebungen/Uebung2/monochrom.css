@@ -1,0 +1,45 @@
+body {
+    max-width: 320px;   /* Spielbreite mit Text*/
+    margin: 0 auto;   /* mittig */
+    background-color: #999966;   /* Hintergrundfarbe Seite */
+}
+
+.container.tetris {
+	background-color: rgb(176, 187, 144);   /* Hintergrundfarbe Spiel */
+	border-left: 20px solid;   /* Steinrahmen links */
+	border-right: 20px solid;   /* und rechts */
+	border-image: url(steinrand.png) 20;   /* Steinbild */
+    width: 240px;   /* Spielbreite */
+    position: absolute;   /* Absolute Angaben */
+    left: 5px;   /* Position links */
+    top: 5px;   /* und oben */
+}
+
+.container.tetris > .row > .col-sm {
+    border:  none;   /* Spielraster unsichtbar */
+}
+
+.container.tetris > .row > .col-sm.block {
+    background-image: url("spielstein.png");   /* Spielstein */
+}
+
+.text-center {   /* Text */
+    float: left;   /* links daneben */
+    background-color: rgb(205, 201, 165);   /* Hintergrundfarbe Text */
+    text-transform: uppercase;   /* Grossbuchstaben */
+    font-weight: bold;   /* Fett */
+    letter-spacing: 3px;   /* Buchstabenabstand */
+    font-family: 'Chakra Petch', sans-serif;   /* Schrift */
+    border: double;   /* Doppellinienrahmen */
+    border-radius: 10px;   /* abgerundet */
+    margin-top: 20px;   /* Aussenabstand oben */
+    margin-left: 205px;   /* Aussenabstand links */
+    padding: 5px;   /* Innenabstand */
+    width: 150px;   /* Breite */
+}
+
+.text-center span {   /* Text 2. Zeile */
+    display: block;   /* Rechteck damit 2. Zeile entsteht */
+    text-align: right;   /* Von rechts */
+    padding-right: 30px;   /* Innenabstand rechts  */
+}

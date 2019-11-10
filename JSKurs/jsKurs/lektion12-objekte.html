@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>Titel</title>
+    <style>
+        * {
+            font-size: 18pt;
+        }
+
+        table td {
+            padding: 10px;
+            border: 3px solid orangered;
+        }
+
+        tr:last-child td {
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+
+    <script>
+        'use strict';
+
+        const person = {
+            vorname: 'Max',
+            nachname: 'Mustermann',
+            adresse: {
+                strasse: 'Faulweg 1',
+                plz: 1210,
+                ort: 'Wien'
+            },
+            alter: 33,
+            verheiratet: false,
+            hobbies: [
+                'Musik',
+                'wandern',
+                'Flipper spielen',
+                'beten'
+            ],
+            'Lieblingsspeise': 'Hamburger'          // <-- ist zu vermeiden
+        }
+
+        console.log(person);
+        console.log(person.vorname + ' ' + person.nachname);
+        console.log(person.adresse.strasse);
+        console.log(person.hobbies[2]);
+        for (let i of person.hobbies) {
+            console.log(i);
+        }
+
+        console.log(person.hobbies.length);
+        console.log(person['nachname']);
+
+        if (person.alter) {
+            console.log('Alter kommt vor');
+        }
+
+        if (person.land) {
+            console.log('Land kommt vor');
+        } else {
+            console.log('Land kommt NICHT vor');
+        }
+
+        delete person.alter;
+
+        if (!person.alter) {
+            console.log('Alter kommt NICHT vor');
+        }
+
+        person.alter = 44;
+        person.alter = 55;
+
+        person.schuhgroesse = 45;
+
+        console.log(person);
+
+        function zeichnenPersonTabelle() {
+            let tableText = `
+                <table>
+                    <tr>
+                        <td>Vorname:</td>
+                        <td>${person.vorname}</td>
+                    </tr>
+                    <tr>
+                        <td>Vorname:</td>
+                        <td>${person.nachname}</td>
+                    </tr>`
+                    for (let i in person.adresse) {
+                        tableText += `
+                        <tr>
+                            <td>${erstesZeichenGross(i)}:</td>
+                            <td>${person.adresse[i]}</td>
+                        </tr>
+                        `
+                    }
+                    tableText += `
+                        <tr>
+                            <td>Hobbies: </td>
+                            <td> 
+                        `
+                        person.hobbies.sort();
+                        for (let i of person.hobbies) {
+                            tableText += `${i}<br>`
+                        }
+                    tableText += `
+                            </td>
+                        </tr>
+                    `
+                    let tempText = '';
+                    if (person.verheiratet) {
+                        tempText = person.vorname + ' ist glücklich verheiratet.';
+                    } else {
+                        tempText = person.vorname + ' ist noch zu haben';
+                    }
+
+                    tableText += `
+                        <tr>
+                            <td colspan="2">${tempText}</td>
+                        </tr>
+                    `
+
+            tableText += `
+                </table>
+            `;
+            document.querySelector('#platzhalter').innerHTML = tableText;
+        }
+    function erstesZeichenGross(text) {
+        let ersterBuchstabe = text[0].toUpperCase();
+        let restBuchstaben = text.slice(1);
+        return ersterBuchstabe + restBuchstaben;
+    }
+    </script>
+</head>
+<body>
+    <h1>Objekte</h1>
+    <div id="platzhalter"></div>
+    <button type="button" onclick="zeichnenPersonTabelle()">Tabelle erstellen</button>
+</body>
+</html>

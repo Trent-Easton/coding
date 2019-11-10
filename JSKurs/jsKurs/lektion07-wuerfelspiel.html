@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>Titel</title>
+    <style>
+        h1 {
+            color: darkgreen;
+        }
+
+        #spielbrett {
+            width: 420px;
+            height: 150px;
+            background: darkgreen;
+            padding-left: 40px;
+            padding-top: 15px;
+        }
+
+        #wuerfel1, #wuerfel2, #wuerfel3 {
+            margin: 10px;
+            border:2px solid black;
+            width: 100px;
+            height: 100px;
+            background: white;
+            position: relative;
+            float: left;
+        }
+    </style>
+    <script>
+        'use strict';
+
+        function starteWuerfelspiel() {
+            const wert1 = Math.ceil(Math.random() * 6);    // * 6 weil das Maximum was raus kommen kann
+            const wert2 = Math.ceil(Math.random() * 6);
+            const wert3 = Math.ceil(Math.random() * 6);
+            console.log(wert1, wert2, wert3)
+
+            // const summeWuerfel = (wert1 + wert2 + wert3);
+            // console.log(summeWuerfel);
+
+        const el1 = document.querySelector('#wuerfel1 img');
+        const el2 = document.querySelector('#wuerfel2 img');
+        const el3 = document.querySelector('#wuerfel3 img');
+        // console.log(el1);
+
+        el1.setAttribute('src', 'assets/images/wuerfel' + wert1 + '.png');
+        el2.setAttribute('src', 'assets/images/wuerfel' + wert2 + '.png');
+        el3.setAttribute('src', 'assets/images/wuerfel' + wert3 + '.png');
+
+        document.querySelector('#summeWuerfel').innerHTML = 'Sie erreichten ' + (wert1 + wert2 +wert3) + ' Punkte';
+    }
+    </script>
+</head>
+
+<body>
+    <h1>Würfelspiel</h1>
+    <h2 id="summeWuerfel"> Noch kein Ergenbnis </h2>
+
+    <div id="spielbrett">
+        <div id="wuerfel1"><img /></div>
+        <div id="wuerfel2"><img /></div>
+        <div id="wuerfel3"><img /></div>
+    </div>
+    <br><br>
+    <button type="button" onclick="starteWuerfelspiel()">Klicke um zu würfeln</button>
+
+</body>
+
+</html>

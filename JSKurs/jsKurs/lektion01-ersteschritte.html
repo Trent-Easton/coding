@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>Document</title>
+    <script>
+        'use strict';
+        
+        // const myName = 'Mein Name ist '; // ändert sich nicht
+        // let fullName = 'Alexander Fuchs';
+        // let fullName;
+        
+        fullName = prompt('Bitte geben Sie ihren Gesamtnamen ein');
+
+        // myName = 'My Name is';   du bist böse, weil Konstanten nicht geändert werden 
+        let gesamtName = myName + fullName;
+
+        // alert(gesamtName); 
+
+        console.log(gesamtName);
+        document.write(gesamtName);
+
+        // let flagDelete = window.confirm('Sind Sie sicher, dass Sie ' + gesamtName + ' löschen wollen?')
+        // console.log(flagDelete);
+
+        const value1 = 100;
+        let value2 = '200';
+
+        value2 = value2 * 1;
+
+        value2 = true;
+
+        value2 = {};
+        let value3 = value1 + value2;
+        console.log('Wert von value3 - value1 - value2:', value3, value1, value2);
+
+        // Kreisumfang berechnung
+
+        /*
+        const pi =  3.14159;
+        let radius = prompt('Radius');
+        let umfang = radius * 2 * Math.PI;
+        console.log('Kreusumfang', umfang); 
+        */
+        // Datentypen
+        let variable1 = 555.5465468;    // number
+        let variable2 = '555';          // string
+        let variable3 = true;           // boolean
+        let variable4 = {vorname: 'Alexander'}; // object
+        let variable5 = ['Alexander', 'Peter', 'Christine']; // array = Object
+        let variable6 = alert;
+
+        console.log('variable1', typeof variable1);
+        console.log('variable2', typeof variable2);
+        console.log('variable3', typeof variable3);
+        console.log('variable4', typeof variable4);
+        console.log('variable5', typeof variable5);
+        console.log('variable6', typeof variable6);
+
+        let testWert = 40;
+        let testFaktor = 50;
+        let testErgebnis = 0;
+
+        testErgebnis = testWert + testFaktor;
+        testErgebnis = testWert - testFaktor;
+        testErgebnis = testWert / testFaktor;
+        testErgebnis = testWert * testFaktor;
+        testErgebnis = testWert % testFaktor;   // 
+        testErgebnis = testWert ** testFaktor;  // Hochzahl
+        testErgebnis = Math.pow(testWert, testFaktor)
+        console.log(testErgebnis)
+
+        testWert *= 2;
+        testWert += 2;
+        testWert -= 2;
+        testWert /= 2;
+        testWert = testWert * 2;
+        console.log(testWert);
+
+        testWert++;
+        testWert--;
+
+        console.log(100 * -1);
+
+        // Übung Aquarium
+        /*
+        let hoehe = ;
+        hoehe = prompt('Bitte Höhe des Aquariums in cm an');
+        let breite = ;
+        breite = prompt('Bitte Breite des Aquariums in cm an');
+        let laenge = ;
+        laenge = prompt('Bitte Länge des Aquariums in cm an');
+        let fuellstanddifferenz = ;
+        fuellstanddifferenz = prompt('Bitte Füllstanddifferrenz des Aquariums in cm an');
+        let kies = ;
+        kies = prompt('Bitte Höhe des Kiesbetts in cm an');
+
+        let Volumen = 
+        */
+
+        
+
+    </script>
+    <noscript>
+        Bitte Java Script einschalten!
+    </noscript>
+
+
+</head>
+
+<body>
+    <h1>Ich lerne Java Script</h1>
+    <p id="ausgabe"></p>
+    <script>
+    </script>
+</body>
+</html>

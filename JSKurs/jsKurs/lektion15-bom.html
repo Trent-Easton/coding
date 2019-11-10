@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>BOM</title>
+    <script>
+        'use strict';
+
+        console.log('test');
+        console.clear();
+
+        console.log(window);
+        console.log(window.innerWidth);
+        console.log(window.innerHeight);
+
+        // window.open('https://www.orf.at', '_blank', 'width=500, height=700');
+
+        console.log(screen);
+
+        console.log(location);
+        //location.href = 'https://www.wifi.at'
+
+        console.log(history);
+        //history,back();
+
+        console.log(navigator);
+        console.log(navigator.userAgent);
+        console.log(navigator.geolocation);
+
+        if (confirm('press a button')) {
+            console.log('true');
+        } else {
+            console.log('false');
+        }
+    </script>    
+</head>
+<body>
+</body>
+</html>

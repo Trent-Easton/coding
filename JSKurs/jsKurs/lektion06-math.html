@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>Document</title>
+    <script>
+        'use strict';
+
+        console.log(Math.round(5.56));
+        console.log(Math.round(5.49));
+        console.log(Math.floor(5.5));   /* abrunden */
+        console.log(Math.ceil(5.5));    /* aufrunden */
+
+        console.log(Math.max(3, 6, 70));
+        console.log(Math.min(3, 6, 70));
+        console.log(Math.random());
+        console.log(Math.random());
+        console.log(Math.random());
+
+        let stringRestgeld = prompt('Bitte Betrag des Retourgeldes eingeben', '15,37');
+        stringRestgeld = stringRestgeld.replace(',','.');
+        let restgeld = parseFloat(stringRestgeld);
+        // let restgeld = parseFloat(stringRestged.replace(',','.')); // Beistrich durch Punkt ersetzen
+        console.log(restgeld);
+
+        let anzahlMuenzen = 0;
+        let anzahlScheine = 0;
+        let restebetrag = 0;
+        
+        // Achtung viele Nachkommastellen
+        // restgeld = restgeld - (7 * 2);
+        // console.log(restgeld);
+
+        restgeld *= 100;
+        console.log(restgeld);
+
+        anzahlScheine = Math.floor(restgeld / 50000);
+        restgeld -= (anzahlScheine * 50000);
+        console.log(' - ' + anzahlScheine + ' x 500€, Rest ' + restgeld);
+
+        anzahlScheine = Math.floor(restgeld / 20000);
+        restgeld -= (anzahlScheine * 20000);
+        console.log(' - ' + anzahlScheine + ' x 200€, Rest ' + restgeld);
+
+        anzahlScheine = Math.floor(restgeld / 10000);
+        restgeld -= (anzahlScheine * 10000);
+        console.log(' - ' + anzahlScheine + ' x 100€, Rest ' + restgeld);
+
+        anzahlScheine = Math.floor(restgeld / 5000);
+        restgeld -= (anzahlScheine * 5000);
+        console.log(' - ' + anzahlScheine + ' x 50€, Rest ' + restgeld);
+
+        anzahlScheine = Math.floor(restgeld / 2000);
+        restgeld -= (anzahlScheine * 2000);
+        console.log(' - ' + anzahlScheine + ' x 20€, Rest ' + restgeld);
+
+        anzahlScheine = Math.floor(restgeld / 1000);
+        restgeld -= (anzahlScheine * 1000);
+        console.log(' - ' + anzahlScheine + ' x 10€, Rest ' + restgeld);
+
+        anzahlScheine = Math.floor(restgeld / 500);
+        restgeld -= (anzahlScheine * 500);
+        console.log(' - ' + anzahlScheine + ' x 5€, Rest ' + restgeld);
+
+        anzahlMuenzen = Math.floor(restgeld / 200);
+        restgeld -= (anzahlMuenzen * 200);
+        console.log(' - ' + anzahlMuenzen + ' x 2€, Rest ' + restgeld);
+
+        anzahlMuenzen = Math.floor(restgeld / 100);
+        restgeld -= (anzahlMuenzen * 100);
+        console.log(' - ' + anzahlMuenzen + ' x 1€, Rest ' + restgeld);
+
+        anzahlMuenzen = Math.floor(restgeld / 50);
+        restgeld -= (anzahlMuenzen * 50);
+        console.log(' - ' + anzahlMuenzen + ' x 0.50€, Rest ' + restgeld);
+
+        anzahlMuenzen = Math.floor(restgeld / 20);
+        restgeld -= (anzahlMuenzen * 20);
+        console.log(' - ' + anzahlMuenzen + ' x 0.20€, Rest ' + restgeld);
+
+        anzahlMuenzen = Math.floor(restgeld / 10);
+        restgeld -= (anzahlMuenzen * 10);
+        console.log(' - ' + anzahlMuenzen + ' x 0.10€, Rest ' + restgeld);
+
+        anzahlMuenzen = Math.floor(restgeld / 5);
+        restgeld -= (anzahlMuenzen * 5);
+        console.log(' - ' + anzahlMuenzen + ' x 0.05€, Rest ' + restgeld);
+
+        anzahlMuenzen = Math.floor(restgeld / 2);
+        restgeld -= (anzahlMuenzen * 2);
+        console.log(' - ' + anzahlMuenzen + ' x 0.02€, Rest ' + restgeld);
+
+        anzahlMuenzen = Math.floor(restgeld / 1);
+        restgeld -= (anzahlMuenzen * 1);
+        console.log(' - ' + anzahlMuenzen + ' x 0.01€, Rest ' + restgeld);
+        
+
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
